@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="banner" >
+                <h3 class="banner-text" >Delete task from todo list </h3>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<form method="POST">
+    {% csrf_token %}
+    <p>Are you sure you are done the task?</p>
+    <button type="submit" class="btn btn-danger">Confirm</button>
+</form>
+{% endblock %}

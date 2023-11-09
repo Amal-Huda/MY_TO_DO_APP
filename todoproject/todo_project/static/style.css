@@ -1,0 +1,19 @@
+.banner{
+        background-color:aquamarine;
+        width:100%;
+        height:100px;
+        }
+.banner-text{
+        left:35%;
+        top:30%;
+        position:absolute;
+}
+.col-md-6{
+        background-color:aquamarine;
+}
+.p-3 {
+        background-color:lightblue;
+}
+.card{
+        background-color:lightblue;
+}

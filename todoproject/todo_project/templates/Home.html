@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="banner"  >
+                <h3 class="banner-text" >Make Your Own ToDo List</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+
+<div class="container "  >
+
+      <div class="row" >
+        <div class="col-md-6">
+            <br>
+            <h4>Enter New Task </h4>
+        <form method="POST" class="p-3 shadow">
+        {%csrf_token %}
+          <div class="form-group ">
+            <input type="text"     class="form-control"  name="task" placeholder="Enter task ">
+          </div>
+          <div class="form-group">
+            <input type="text"     class="form-control" name="priority" placeholder="Enter priority">
+          </div>
+             <div class="form-group">
+            <input type="date"     class="form-control" name="date" placeholder="Enter date">
+          </div>
+
+        <input type="submit" class="btn btn-danger">
+      </form>
+      </div>
+          <div class="col-md-6">
+              <br>
+              <h4>Todo List</h4>
+              {% for i in tasklist %}
+              <div class="shadow card">
+                  <div class="card-body">
+                      <h4 class="card-title">{{i.taskname}}</h4><p><h4>{{i.taskpriority}}</h4></p>
+                      <p><h4>{{i.taskdate}}</h4></p>
+                      <a class="btn btn-success" href="{% url 'todoapp:delete' i.id %}">Done</a>
+                      <a class="btn btn-danger" href="{% url 'todoapp:update_task' i.id %}">Edit</a>
+
+                  </div>
+              </div>
+              <br>
+              {% endfor %}
+
+
+          </div>
+
+    </div>
+</div>
+
+
+<br>
+
+{% endblock %}
